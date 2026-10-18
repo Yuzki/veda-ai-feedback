@@ -20,12 +20,12 @@ Shared problem-report desk for all VEDA AI services:
 
 ## Report a problem
 
-<https://github.com/Yuzki/veda-ai-feedback/issues/new?template=problem-report.yml>
+<https://github.com/Yuzki/veda-ai-feedback/issues/new?template=report.yml>
 
 ## Linking from a service (prefilled form)
 
 ```
-https://github.com/Yuzki/veda-ai-feedback/issues/new?template=problem-report.yml&service=<SERVICE>&page=<PAGE_URL>
+https://github.com/Yuzki/veda-ai-feedback/issues/new?template=report.yml&service=<SERVICE>&page=<PAGE_URL>
 ```
 
 - Query parameter names are the form field ids: `service` and `page`. The other fields can be prefilled too: `problem_type`, `description`, `expected`, `environment`.
@@ -49,7 +49,7 @@ JavaScript snippet for a service page:
 
 ```js
 const base = "https://github.com/Yuzki/veda-ai-feedback/issues/new";
-const url = `${base}?template=problem-report.yml&service=${encodeURIComponent("Veda Bib")}&page=${encodeURIComponent(location.href)}`;
+const url = `${base}?template=report.yml&service=${encodeURIComponent("Veda Bib")}&page=${encodeURIComponent(location.href)}`;
 ```
 
 Stability: the field ids and the `service` option strings are a public contract used by these URLs. Do not rename them. To add a service, add the dropdown option, create its label, and add a row to the table above.
@@ -78,4 +78,4 @@ Triage: apply the label that matches the `service` field of each new issue. Auto
 
 ## Maintainers: editing the form
 
-The form is defined in `.github/ISSUE_TEMPLATE/problem-report.yml`; `config.yml` disables blank issues. Keep the field ids and service option strings unchanged (see above).
+The form is defined in `.github/ISSUE_TEMPLATE/report.yml`; `config.yml` disables blank issues. Keep the field ids and service option strings unchanged (see above).
