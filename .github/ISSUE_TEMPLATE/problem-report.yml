@@ -1,0 +1,74 @@
+name: "Report a problem / 問題を報告"
+description: "Report a problem with any VEDA AI service / VEDA AI のサービスの問題を報告"
+title: "[Problem] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A GitHub account is required. **This report will be public** — do not include personal or confidential information.
+
+        GitHub アカウントが必要です。**報告内容は公開されます。** 個人情報・機密情報は書かないでください。
+  # do not rename: used by prefill URLs (id and option strings)
+  - type: dropdown
+    id: service
+    attributes:
+      label: "Service / サービス"
+      multiple: false
+      options:
+        - EWAia Abbreviation Search
+        - Veda Bib
+        - Veda Image
+        - Text Image Viewer
+        - VEDA AI Reader
+        - Text Search
+        - Gandhari Converter
+        - Project site
+        - Other
+    validations:
+      required: true
+  # do not rename: used by prefill URLs
+  - type: input
+    id: page
+    attributes:
+      label: "Page URL / 問題のあるページの URL"
+      description: "URL of the page where the problem occurs. / 問題が起きているページの URL。"
+      placeholder: "https://…"
+    validations:
+      required: false
+  - type: dropdown
+    id: problem_type
+    attributes:
+      label: "Type of problem / 問題の種類"
+      options:
+        - "Data error / データの誤り"
+        - "Display issue / 表示の不具合"
+        - "Functional issue / 動作の不具合"
+        - "Other / その他"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "What happened / 内容"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected result / 期待する結果"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment (optional) / 環境（任意）"
+      description: "Browser, OS, device. / ブラウザ、OS、デバイスなど。"
+    validations:
+      required: false
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: "Public report / 公開について"
+      options:
+        - label: "I understand this report is public and I have a GitHub account. / この報告が公開されることを理解しました。"
+          required: true
